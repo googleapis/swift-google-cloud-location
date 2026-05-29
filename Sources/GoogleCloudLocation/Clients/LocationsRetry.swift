@@ -60,7 +60,7 @@ extension Clients {
         idempotent: true,
         action: {
           (r: ListLocationsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> ListLocationsResponse
+            -> GoogleCloudLocation.ListLocationsResponse
           in
           return try await self.inner.listLocations(request: r, options: o)
         })
@@ -74,7 +74,8 @@ extension Clients {
         options: options,
         idempotent: true,
         action: {
-          (r: GetLocationRequest, o: GoogleCloudGax.RequestOptions) async throws -> Location
+          (r: GetLocationRequest, o: GoogleCloudGax.RequestOptions) async throws
+            -> GoogleCloudLocation.Location
           in
           return try await self.inner.getLocation(request: r, options: o)
         })
